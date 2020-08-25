@@ -1,6 +1,9 @@
 package com.webflux.pokedex.controller;
 
+import java.time.Duration;
+
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.webflux.pokedex.model.Pokemon;
+import com.webflux.pokedex.model.PokemonEvent;
 import com.webflux.pokedex.repository.PokedexRepository;
 
 import reactor.core.publisher.Flux;
@@ -70,4 +74,11 @@ public class PokemonController {
 		return repository.deleteAll();
 	}
 
+	 @GetMapping(value = "/events", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	    public Flux<PokemonEvent> getPokemonEvents() {
+	        return Flux.interval(Duration.ofSeconds(5))
+	                .map(val ->
+	                        new PokemonEvent(val, "Evento de pokemonssss")
+	                );
+	    }
 }

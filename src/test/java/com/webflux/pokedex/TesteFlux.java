@@ -9,11 +9,17 @@ public class TesteFlux {
 	public void texFlux1() {
 		Flux.empty();
 	}
-	
+
 	@Test
 	public void testFlux2() {
 		Flux<String> flux = Flux.just("Pokemon");
 		flux.subscribe(System.out::println);
 	}
-	
+
+	@Test
+	void testFlux3() {
+		Flux<String> flux = Flux.just("Sharizard", "Blastoise", "Pixachu");
+		flux.subscribe(System.out::println);
+	}
+
 }

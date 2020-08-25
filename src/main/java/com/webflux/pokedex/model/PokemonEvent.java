@@ -67,7 +67,8 @@ public class PokemonEvent {
 
 	@Override
 	public String toString() {
-		return "PokemonEvent [eventId=" + eventId + ", eventType=" + eventType + "]";
+		return "PokemonEvent [eventId=" + eventId + ", "
+				+ "eventType=" + eventType + "]";
 	}
 	
 	

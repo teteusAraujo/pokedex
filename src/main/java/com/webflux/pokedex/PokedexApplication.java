@@ -23,6 +23,7 @@ public class PokedexApplication {
 			PokedexRepository repository) {
 		return args -> {
 			Flux<Pokemon> pokedexFlux = Flux.just(
+					new Pokemon(null, "Pikachu", "Eletrico", "Choque do Trovao", 5.09),
 					new Pokemon(null, "Bulbassauro", "Semente", "OverGrow", 6.09),
 					new Pokemon(null, "Charizard", "Fogo", "Blaze", 90.05),
 					new Pokemon(null, "Caterpie", "Minhoca", "Poeira de Escudo", 2.09),
